@@ -16,6 +16,8 @@ class ClipModel(db.Model):
     date_added = db.Column(db.DateTime)
     score = db.Column(db.Integer)
 
+    comments = db.relationship('CommentModel', lazy='dynamic')
+
     def save(self):
         db.session.add(self)
         db.session.commit()
@@ -37,5 +39,5 @@ class ClipModel(db.Model):
         return cls.query.order_by(desc(cls.score)).limit(n).all()
 
     @classmethod
-    def top_rated(cls, n):
+    def last_added(cls, n):
         return cls.query.order_by(desc(cls.date_added)).limit(n).all()

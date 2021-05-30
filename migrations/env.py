@@ -1,6 +1,6 @@
 from __future__ import with_statement
 
-from models import clip
+from models import clip, comment
 
 import logging
 from logging.config import fileConfig

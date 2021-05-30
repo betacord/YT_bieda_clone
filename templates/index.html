@@ -25,32 +25,16 @@
 
     <h1>Ostatnio dodane</h1>
     <div class="card-group">
-        <div class="card" style="width: 18rem;">
-          <img src="{{img_src}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{clip_title}}</h5>
-            <p class="card-text">{{clip_description}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        {% for clip in last_added %}
+            <div class="card" style="width: 18rem;">
+              <img src="https://i.ytimg.com/vi/{{clip.yt_id}}/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCbarvnzwIJh6Yjekv1jQUwcKU-iQ" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{clip.title}}</h5>
+                <p class="card-text">{{clip.description}}</p>
+                <a href="/clip/{{clip.id}}" class="btn btn-primary">Idź do filmu</a>
+              </div>
+            </div>
+        {% endfor %}
     </div>
 
     <h1>Najwyżej oceniane</h1>
